@@ -1,0 +1,20 @@
+.prototype_calendar .month_title h3 {
+  display: inline;
+}
+
+.prototype_calendar ul {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.prototype_calendar ul li {
+  float: left;
+  text-align: center;
+  width: 30px;
+}
+
+.prototype_calendar ul li.clear {
+  clear: both;
+}
