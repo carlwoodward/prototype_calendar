@@ -75,7 +75,9 @@ var PrototypeCalendar = Class.create({
     var self = this;
     for(var i = 0; i < date.getDay(); i++) { ul.insert(self.blank_day()); clear_count += 1; }
     while(date < self.next_month()) {
+      var formatted_date = formatDate(date, 'yyyy/MM/dd')
       var li = new Element('li').addClassName('day').update(self.get_link(date));
+      li.setAttribute('data-date', formatted_date);
       self.add_clear_and_callbacks(li, date, clear_count);
       ul.insert(li);
       date = self.next_date(date);
@@ -94,7 +96,7 @@ var PrototypeCalendar = Class.create({
     var a = new Element('a', {'href': 'javascript:void(0);'}).update(date.getDate());
     a.observe('click', function(ev) {
       ev.stop();
-      self.click_callback(date);
+      self.click_callback(date, a);
     });
     return a;
   },
